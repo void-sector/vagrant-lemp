@@ -1,0 +1,22 @@
+
+server {
+        listen 80 default_server;
+
+        root /usr/share/nginx/symfony/web;
+        index app.php;
+
+        server_name localhost;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+
+        location ~ ^/.*\.php$ {
+            fastcgi_pass    unix:/var/run/php5-fpm.sock;
+            fastcgi_index   index.php;
+            fastcgi_param   SCRIPT_FILENAME  /usr/share/nginx/symfony/web/$fastcgi_script_name;
+            fastcgi_read_timeout 500;
+            include         fastcgi_params;
+        }
+}
+

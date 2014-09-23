@@ -1,0 +1,15 @@
+- name: install nginx
+  apt: name=nginx state=latest update_cache=yes
+  sudo: true
+  
+- name: install php-fpm in nginx config
+  template: src=site dest=/etc/nginx/sites-available/default
+  sudo: true
+  notify: 
+    - restart nginx
+
+- name: install phpinfo page
+  template: src=index.php dest=/usr/share/nginx/html/index.php
+  sudo: true
+  notify: 
+    - restart nginx

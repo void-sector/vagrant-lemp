@@ -1,0 +1,3 @@
+ - name: download composer
+   get_url: url=https://getcomposer.org/composer.phar dest=/usr/bin/composer mode=0755
+   sudo: true

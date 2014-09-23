@@ -1,0 +1,7 @@
+---
+# tasks file for symfony2
+
+- name: install symfony2
+  command: composer create-project symfony/framework-standard-edition /usr/share/nginx/symfony "2.5.*"
+  sudo: true
+  
