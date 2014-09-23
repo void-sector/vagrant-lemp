@@ -5,3 +5,6 @@
   roles:
       - php
       - composer
+      - nginx
+      - git
+#      - symfony2
